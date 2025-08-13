@@ -57,46 +57,53 @@ Create a custom VPC with both public and private subnets, configure internet acc
 
 # Create VPC and Subnets
 - created a VPC + 1 private subnet (IPv4 + IPv6 (also public))
-
-
+![New VPC](images/new%20VPC.png)
+![Creating CIDR](images/creating%20CIDR.png)
 
 - place subnets in different AZs for high availability
 - created 3 subnets in north1a 1b and 1c respectively and expanded the VPC's CIDR block as /28 was too restrictive
 - I deleted the VPC and the subnet I created and then remade it
-
+![3 Subnets](images/3%20subnets.png)
 
 
 # Attach IGW
 - all the subnet above have no access to the internet
 - I need to attach IGW to allow internet access for at least 1 subnet
 - created IGW and attached to VPC
-
+![Attach IGW to New VPC](images/attach%20IGW%20to%20new%20VPC.png)
 
 
 # Private Route
 - create Private route associate with private subnet
-
-
+![New Route](images/new%20route.png)
+![Attach Route to Subnet](images/attach%20route%20to%20subnet.png)
+![Subnet Associations](images/subnet%20associations.png)
 
 
 # Assign Public Route to Public Subnet
 - creating a public route and assign to public subnets
 - target is IGW for internet access
-
+![Target IGW](images/target%20IGW.png)
 
 - edit auto-assign IP settings
+![Edit Subnet Settings](images/edit%20subnet%20settings.png)
+![Enable Auto-Assign Public IPv4 Address](images/enable%20auto-assign%20public%20IPv4%20address.png)
 
 
 # Launch an Instance 
+
 ## Public 
-
-
+![Launch Public Instance](images/launch%20public%20instance.png)
+![Attach SG and Public Subnet to Instance](images/attach%20SG%20and%20public%20subnet%20to%20instance.png)
 
 # Private
+![Launch Private Instance](images/launch%20private%20instance.png)
 
 
 
 # Assign NAT Gateway to Private Subnet
+![Private Route](images/private%20route.png)
+![Assign NAT Gateway to Private Instance](images/assign%20NAT%20gateway%20to%20private%20instance.png)
 
 
 # Bastion Host
@@ -109,12 +116,12 @@ Create a custom VPC with both public and private subnets, configure internet acc
 1. copy private key to a file on the instance
 2. change permissions chmod 400
 3. ssh -i prikey.pem ec2-user@10.0.0.157
-
-
+![Bastion Host](images/Bastion%20Host.png)
 
 - top ping is with NAT gateway attached to private subnet
 - bottom ping is without NAT gateway
-
+![With and Without NAT Gateway](images/with%20and%20without%20NAT%20gateway.png)
+![Private Instance Route](images/private%20instance%20route.png)
 
 
 
