@@ -7,8 +7,8 @@ Create a custom VPC with both public and private subnets, configure internet acc
     - Create a custom VPC with at least one public and one private subnet.
 
 2. **Internet & NAT Gateway:**
-    - <mark style="background: #FF5582A6;">Attach an Internet Gateway (IGW).
-    - Deploy a NAT Gateway (NGW) in the public subnet.</mark>
+    - Attach an Internet Gateway (IGW).
+    - Deploy a NAT Gateway (NGW) in the public subnet.
  
 3. **EC2 Instances:**
     - Launch one EC2 instance in the public subnet (with internet access).
