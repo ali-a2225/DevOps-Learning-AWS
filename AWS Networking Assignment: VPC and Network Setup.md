@@ -74,7 +74,7 @@ Create a custom VPC with both public and private subnets, configure internet acc
 
 
 # Private Route
-- create Private route associate with private subnet
+- create private route associate with private subnet
 ![New Route](images/new%20route.png)
 ![Attach Route to Subnet](images/attach%20route%20to%20subnet.png)
 ![Subnet Associations](images/subnet%20associations.png)
