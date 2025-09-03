@@ -45,7 +45,7 @@ Create a custom VPC with both public and private subnets, configure internet acc
 - [x] figure out how to deploy NAT Gateway in the public subnet
 - [x] figure out how to launch and EC2 instance in a public subnet
 - [x] review notes on routing tables to see how they are meant to be configured
-- [ ] figure out how to restrict traffic to private subnet
+- [x] figure out how to restrict traffic to private subnet
 - [x] figure out how to set up a bastion host or jump box
 - [ ] figure out how to enable cloud watch monitoring
 
