@@ -26,7 +26,7 @@ Create a custom VPC with both public and private subnets, configure internet acc
 ---
 
 
-## Initial thoughts
+# Initial thoughts
 
 - Create a custom VPC with at least one public and one private subnet - use CIDR notation to create a private subnet, will probably start with 172., assign public IP
 - Attach an Internet Gateway (IGW) - internet gateway for accessing the internet
@@ -38,7 +38,7 @@ Create a custom VPC with both public and private subnets, configure internet acc
 - Set up a Bastion Host (Jump Box) - need to figure this out
 - Enable CloudWatch monitoring and logging - need to figure this out
 
-## Tasks
+# Tasks
 - [x] create a customer VPC with 1 private and 1 public subnet
 - [x] create an IGW, watch video on IGW
 - [x] attach IGW to the VPC, watch video on how to attach IGW
@@ -52,10 +52,10 @@ Create a custom VPC with both public and private subnets, configure internet acc
 
 
 
-## Action  
+# Action  
 
 
-# Create VPC and Subnets
+## Create VPC and Subnets
 - created a VPC + 1 private subnet (IPv4 + IPv6 (also public))
 ![New VPC](images/new%20VPC.png)
 ![Creating CIDR](images/creating%20CIDR.png)
@@ -66,21 +66,21 @@ Create a custom VPC with both public and private subnets, configure internet acc
 ![3 Subnets](images/3%20subnets.png)
 
 
-# Attach IGW
+## Attach IGW
 - all the subnet above have no access to the internet
 - I need to attach IGW to allow internet access for at least 1 subnet
 - created IGW and attached to VPC
 ![Attach IGW to New VPC](images/attach%20IGW%20to%20new%20VPC.png)
 
 
-# Private Route
+## Private Route
 - create private route associate with private subnet
 ![New Route](images/new%20route.png)
 ![Attach Route to Subnet](images/attach%20route%20to%20subnet.png)
 ![Subnet Associations](images/subnet%20associations.png)
 
 
-# Assign Public Route to Public Subnet
+## Assign Public Route to Public Subnet
 - creating a public route and assign to public subnets
 - target is IGW for internet access
 ![Target IGW](images/target%20IGW.png)
@@ -90,29 +90,29 @@ Create a custom VPC with both public and private subnets, configure internet acc
 ![Enable Auto-Assign Public IPv4 Address](images/enable%20auto-assign%20public%20IPv4%20address.png)
 
 
-# Launch an Instance 
+## Launch an Instance 
 
-## Public 
+### Public 
 ![Launch Public Instance](images/launch%20public%20instance.png)
 ![Attach SG and Public Subnet to Instance](images/attach%20SG%20and%20public%20subnet%20to%20instance.png)
 
-# Private
+### Private
 ![Launch Private Instance](images/launch%20private%20instance.png)
 
 
 
-# Assign NAT Gateway to Private Subnet
+## Assign NAT Gateway to Private Subnet
 ![Private Route](images/private%20route.png)
 ![Assign NAT Gateway to Private Instance](images/assign%20NAT%20gateway%20to%20private%20instance.png)
 
 
-# Bastion Host
-## Allow Access from Bastion Host (in the Public Subnet)
+## Bastion Host
+### Allow Access from Bastion Host (in the Public Subnet)
 - attach security group to instance in the private subnet that allows SSH from the public subnet instances or a Bastion Host
 
 
 
-## Test connection from Bastion Host to Private Instance
+### Test connection from Bastion Host to Private Instance
 1. copy private key to a file on the instance
 2. change permissions chmod 400
 3. ssh -i prikey.pem ec2-user@10.0.0.157
